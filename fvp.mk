@@ -58,7 +58,7 @@ FVP_PATH		?= $(ROOT)/Base_RevC_AEMvA_pkg/models/Linux64_GCC-9.3
 FVP_BIN			?= FVP_Base_RevC-2xAEMvA
 FVP_LINUX_DTB		?= $(LINUX_PATH)/arch/arm64/boot/dts/arm/fvp-base-revc.dtb
 else
-FVP_PATH		?= $(ROOT)/Foundation_Platformpkg/models/Linux64_GCC-9.3
+FVP_PATH		?= $(ROOT)/../Foundation_Platform//Foundation_Platformpkg/models/Linux64_GCC-9.3
 FVP_BIN			?= Foundation_Platform
 FVP_LINUX_DTB		?= $(LINUX_PATH)/arch/arm64/boot/dts/arm/foundation-v8-gicv3-psci.dtb
 endif
