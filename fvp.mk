@@ -54,13 +54,13 @@ endif
 EDK2_BIN		?= $(EDK2_PLATFORMS_PATH)/Build/ArmVExpress-FVP-AArch64/$(EDK2_BUILD)_$(EDK2_TOOLCHAIN)/FV/FVP_$(EDK2_ARCH)_EFI.fd
 FVP_USE_BASE_PLAT	?= n
 ifeq ($(FVP_USE_BASE_PLAT),y)
-FVP_PATH		?= $(ROOT)/Base_RevC_AEMvA_pkg/models/Linux64_GCC-9.3
+FVP_PATH		?= $(ROOT)/../fvp/Base_RevC_AEMvA_pkg/models/Linux64_GCC-9.3
 FVP_BIN			?= FVP_Base_RevC-2xAEMvA
 FVP_LINUX_DTB		?= $(LINUX_PATH)/arch/arm64/boot/dts/arm/fvp-base-revc.dtb
 else
 FVP_PATH		?= $(ROOT)/../Foundation_Platform//Foundation_Platformpkg/models/Linux64_GCC-9.3
 FVP_BIN			?= Foundation_Platform
-FVP_LINUX_DTB		?= $(LINUX_PATH)/arch/arm64/boot/dts/arm/foundation-v8-gicv3-psci.dtb
+FVP_LINUX_DTB		?= $(LINUX_PATH)/arch/arm64/boot/dts/arm/foundation-v/8-gicv3-psci.dtb
 endif
 ifeq ($(wildcard $(FVP_PATH)),)
 $(error $(FVP_PATH) does not exist)
@@ -114,8 +114,8 @@ $(OUT_PATH):
 # Note: the post-build script can only append to fstab. If FVP_VIRTFS_AUTOMOUNT
 # is changed from "y" to "n", run 'rm -r ../out-br/build/skeleton-init-sysv' so
 # the target's fstab will be replaced with the unmodified original again.
-FVP_VIRTFS_ENABLE	?= n
-FVP_VIRTFS_HOST_DIR	?= $(ROOT)
+FVP_VIRTFS_ENABLE	?= y
+FVP_VIRTFS_HOST_DIR	?= $(ROOT)/mnt
 FVP_VIRTFS_AUTOMOUNT	?= n
 FVP_VIRTFS_MOUNTPOINT	?= /mnt/host
 
